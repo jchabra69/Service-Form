@@ -1,0 +1,78 @@
+<app-header></app-header>
+
+<div class="container mt-5">
+  <h2 class="mb-4">Crear Evento</h2>
+
+  <form [formGroup]="formEvento" (ngSubmit)="onSubmit()">
+    
+    <div class="mb-3">
+      <label for="titulo" class="form-label">Título</label>
+      <input type="text" class="form-control" id="titulo" formControlName="titulo" required />
+      <div *ngIf="formEvento.get('titulo')?.invalid && formEvento.get('titulo')?.touched" class="text-danger">
+        El título es obligatorio.
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label for="descripcion" class="form-label">Descripción</label>
+      <textarea class="form-control" id="descripcion" formControlName="descripcion"></textarea>
+    </div>
+
+    <div class="mb-3">
+      <label for="empleado" class="form-label">Empleado</label>
+      <select class="form-select" id="empleado" formControlName="empleado" required>
+        <option value="" disabled selected>Selecciona un empleado</option>
+        <option *ngFor="let empleado of empleados" [value]="empleado.id">
+          {{ empleado.nombre }} - {{ empleado.puesto }}
+        </option>
+      </select>
+      <div *ngIf="formEvento.get('empleado')?.invalid && formEvento.get('empleado')?.touched" class="text-danger">
+        El empleado es obligatorio.
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label for="cliente" class="form-label">Cliente</label>
+      <select class="form-select" id="cliente" formControlName="cliente" required>
+        <option value="" disabled selected>Selecciona un cliente</option>
+        <option *ngFor="let cliente of clientes" [value]="cliente.id">
+          {{ cliente.nombre }} - {{ cliente.razonSocial }}
+        </option>
+      </select>
+      <div *ngIf="formEvento.get('cliente')?.invalid && formEvento.get('cliente')?.touched" class="text-danger">
+        El cliente es obligatorio.
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label for="categoria" class="form-label">Categoría</label>
+      <input type="text" class="form-control" id="categoria" formControlName="categoria" required />
+      <div *ngIf="formEvento.get('categoria')?.invalid && formEvento.get('categoria')?.touched" class="text-danger">
+        La categoría es obligatoria.
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label for="clasificacion" class="form-label">Clasificación</label>
+      <select class="form-select" id="clasificacion" formControlName="clasificacion" required>
+        <option value="" disabled selected>Selecciona una clasificación</option>
+        <option value="Log">Log</option>
+        <option value="Warn">Warn</option>
+        <option value="Error">Error</option>
+      </select>
+      <div *ngIf="formEvento.get('clasificacion')?.invalid && formEvento.get('clasificacion')?.touched" class="text-danger">
+        La clasificación es obligatoria.
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label for="fecha" class="form-label">Fecha</label>
+      <input type="datetime-local" class="form-control" id="fecha" formControlName="fecha" required />
+      <div *ngIf="formEvento.get('fecha')?.invalid && formEvento.get('fecha')?.touched" class="text-danger">
+        La fecha es obligatoria.
+      </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary" [disabled]="formEvento.invalid">Crear Evento</button>
+  </form>
+</div>

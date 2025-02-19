@@ -1,0 +1,27 @@
+[
+  {
+    "id": 1,
+    "nombre": "Pepe Viyuela",
+    "puesto": "Administrador"
+  },
+  {
+    "id": 2,
+    "nombre": "Lorena García",
+    "puesto": "Gestor"
+  },
+  {
+    "id": 3,
+    "nombre": "Manolito Salas",
+    "puesto": "Gestor"
+  },
+  {
+    "id": 4,
+    "nombre": "Mauricio Colmenero",
+    "puesto": "Jefe"
+  },
+  {
+    "id": 5,
+    "nombre": "Parrales Rosario",
+    "puesto": "Gestor"
+  }
+]

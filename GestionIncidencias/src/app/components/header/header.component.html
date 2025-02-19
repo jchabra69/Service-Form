@@ -1,0 +1,26 @@
+<div class="container-fluid mt-4">
+  <div class="row mb-4 align-items-center">
+    <div class="col-md-12 d-flex align-items-center justify-content-between">
+      <img src="https://files.catbox.moe/ah3aqf.png" alt="Logo" class="img-fluid" style="max-width: 150px;">
+      <h1 class="ms-3 mb-0">Gestión de Incidencias</h1>
+
+      <div class="d-flex align-items-center">
+        <label for="empleadoActual" class="form-label mb-0 me-3">Empleado:</label>
+        <select id="empleadoActual" class="form-select w-auto" aria-label="Seleccionar Empleado" (change)="onEmpleadoSeleccionado($event)">
+          <option value="null" selected *ngIf="!empleadoSeleccionado">
+            Seleccionar Empleado
+          </option>
+
+          <option value="null" disabled *ngIf="empleadoSeleccionado">
+            Empleado Actual: {{ empleadoSeleccionado.nombre || 'Sin empleado seleccionado' }}
+          </option>
+
+          <!-- Haz un option por cada empleado que haya -->
+          <option *ngFor="let empleado of empleados" [value]="empleado.id" [selected]="empleadoSeleccionado?.id === empleado.id">
+            {{ empleado.nombre }}
+          </option>
+        </select>
+      </div>
+    </div>
+  </div>
+</div>
